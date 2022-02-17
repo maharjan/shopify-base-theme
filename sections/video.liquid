@@ -1,0 +1,71 @@
+<hr>
+{% if section.settings.heading != blank %}
+    <div class="section-header">
+        <p class="h1">{{ section.settings.heading | escape }}</p>
+    </div>
+{% endif %}
+<div class="grid">
+    <div class="grid-item one-whole">
+        <div class="video-wrapper">
+            {% if section.settings.video_url == blank %}
+                <iframe allowfullscreen frameborder="0" height="480" src="//www.youtube.com/embed/_9VUPq3SxOc?rel=0&showinfo=0&vq=720" width="850"></iframe>
+            {% else %}
+                {% if section.settings.video_url.type == "youtube" %}
+                    <iframe allowfullscreen frameborder="0" height="480" src="//www.youtube.com/embed/{{ section.settings.video_url.id }}?rel=0&showinfo=0&vq=720" width="850"></iframe>
+                {% endif %}
+                {% if section.settings.video_url.type == "vimeo" %}
+                    <iframe allowfullscreen frameborder="0" height="480" src="//player.vimeo.com/video/{{ section.settings.video_url.id }}?byline=0&portrait=0&badge=0" width="850"></iframe>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+
+{
+    "name": {
+        "en": "Video",
+        "np": "भिडियो"
+    },
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": {
+                "en": "Heading",
+                "np": "हेडिङ"
+            },
+            "default": {
+                "en": "Video",
+                "np": "भिडियो"
+            }
+        }, {
+            "type": "video_url",
+            "id": "video_url",
+            "label": {
+                "en": "Video link",
+                "np": "भिडियो लिङ्क"
+            },
+            "accept": [
+                "youtube",
+                "vimeo"
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": {
+                "en": "Video",
+                "np": "भिडियो"
+            },
+            "category": {
+                "en": "Video",
+                "np": "भिडियो"
+            }
+        }
+    ]
+}
+
+{% endschema %}
