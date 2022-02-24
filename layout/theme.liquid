@@ -30,10 +30,10 @@
         <meta content="width=device-width,initial-scale=1" name="viewport">
 
         <script>
-
             var moneyFormat = '{{ shop.money_format }}';
-
         </script>
+
+        {{ "style.css" | asset_url | stylesheet_tag}}
 
         {{ content_for_header }}
 
@@ -54,5 +54,7 @@
         <ul hidden>
             <li id="a11y-refresh-page-message">{{ 'general.accessibility.refresh_page' | t }}</li>
         </ul>
+
+        {{ "custom.js" | asset_url | script_tag }}
     </body>
 </html>

@@ -1,0 +1,51 @@
+<div class="contact-main-page">
+    {% form 'contact' %}
+        {% if form.posted_successfully? %}
+            <p class="form--success">
+                {{ "contact.form.post_success" | t }}
+            </p>
+        {% else %}
+            {{ form.errors | default_errors }}
+        {% endif %}
+        <div>
+            <!-- Form element goes here -->
+        </div>
+
+    {% endform %}
+</div>
+
+{% schema %}
+
+{
+    "name": "Contact Us Form",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "form_heading",
+            "default": "Your Message",
+            "label": "Title"
+        }, {
+            "type": "text",
+            "id": "form_email",
+            "default": "Your Email",
+            "label": "Email Label"
+        }, {
+            "type": "text",
+            "id": "form_full_name",
+            "default": "Your Name",
+            "label": "Name Label"
+        }, {
+            "type": "text",
+            "id": "form_message",
+            "default": "Your Message",
+            "label": "Message Label"
+        }, {
+            "type": "text",
+            "id": "form_button",
+            "default": "Send",
+            "label": "Button Label"
+        }
+    ]
+}
