@@ -9,6 +9,27 @@
         {% endif %}
         <div>
             <!-- Form element goes here -->
+            <div>
+                <label>{{ section.settings.form_full_name }}</label>
+                <input id="contactFormName" name="contact[full_name]" type="text"/>
+            </div>
+            <div>
+                <label>{{ section.settings.form_email }}
+                    <span class="required">*</span>
+                </label>
+                <input id="contactFormEmail" name="contact[email]" required type="email"/>
+            </div>
+            <div>
+                <label>{{ section.settings.form_message }}
+                    <span class="required">*</span>
+                </label>
+                <textarea id="contactFormMessage" name="contact[body]" required></textarea>
+            </div>
+            <div>
+                <button type="submit">
+                    {{ section.settings.form_button }}
+                </button>
+            </div>
         </div>
 
     {% endform %}

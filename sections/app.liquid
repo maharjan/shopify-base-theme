@@ -1,0 +1,28 @@
+{% comment %}
+    This section is used as container or loading element for Shopify app developed using theme app extension.
+{% endcomment %}
+
+{%- for block in section.blocks -%}
+    {%- case block.type -%}
+        {%- when '@app' -%}
+            {% render block %}
+    {%- endcase -%}
+{%- endfor -%}
+
+{% schema %}
+{
+  "name": "App Section",
+  "tag": "section",
+  "class": "section",
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Apps"
+    }
+  ]
+}
+{% endschema %}

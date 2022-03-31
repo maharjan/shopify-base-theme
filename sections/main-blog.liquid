@@ -1,0 +1,46 @@
+<div>
+    {%- paginate blog.articles by 10 -%}
+    {%- for article in blog.articles -%}
+    {%- render 'article-card',
+    article: article,
+    show_image: section.settings.show_feature_image,
+    show_date: section.settings.show_article_date,
+    show_author: section.settings.show_article_author -%}
+    {%- endfor -%}
+
+    {% render 'pagination', paginate: paginate %}
+    {%- endpaginate -%}
+</div>
+
+{% schema %}
+{
+"name": "Main blog",
+"tag": "section",
+"class": "section",
+"settings": [
+{
+"type": "checkbox",
+"id": "show_feature_image",
+"default": true,
+"label": "Show featured image"
+},
+{
+"type": "checkbox",
+"id": "show_article_date",
+"default": true,
+"label": "Show date"
+},
+{
+"type": "checkbox",
+"id": "show_article_author",
+"default": true,
+"label": "Show author"
+},
+{
+"type": "paragraph",
+"content": "Change excerpts by editing your blog posts. [Learn
+more](https://help.shopify.com/en/manual/online-store/blogs/writing-blogs#display-an-excerpt-from-a-blog-post)"
+}
+]
+}
+{% endschema %}
