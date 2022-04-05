@@ -4,7 +4,7 @@
             <div class="breadcrumb-content">
                 <ul>
                     <li>
-                        <a id="breadcrumb-home" href="{{ routes.root_url }}" title="{{ "breadcrumb.home_title" | t }}">{{ "breadcrumb.home" | t }}</a>
+                        <a id="breadcrumb-home" href="{{ routes.root_url }}" title="Home">Home</a>
                     </li>
                     {% case request.page_type %}
                         {% when 'collection' %}
@@ -73,7 +73,7 @@
         if (sessionStorage.breadcrumb) {
             theme.breadcrumbs = {};
             theme.breadcrumbs.collection = JSON.parse(sessionStorage.breadcrumb);
-            var showCollection = false;{%- if request.page_type == "product" -%}var breadcrumbHTML = "<li class=\"active\"><a href=\"" + theme
+            var showCollection = false;{% if request.page_type == "product" %}var breadcrumbHTML = "<li class=\"active\"><a href=\"" + theme
                     .breadcrumbs
                     .collection
                     .link + "\">" + theme
@@ -95,7 +95,7 @@
                 if (homeBreadcrumb && showCollection) {
                     homeBreadcrumb.insertAdjacentHTML("afterend", breadcrumbHTML);
                 }
-            {%- endif -%}
+            {% endif %}
         }
     </script>
 {% endunless %}

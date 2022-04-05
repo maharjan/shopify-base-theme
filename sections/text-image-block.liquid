@@ -6,54 +6,54 @@
         </div>
         <div>
             {%- if section.settings.image -%}
-            <img alt="{{ section.settings.title }}" class="img-full"
-                src="{{ section.settings.image | img_url: 'master' }}" loading="lazy" width="440" height="275" />
+                <img alt="{{ section.settings.title }}" class="img-full" src="{{ section.settings.image | image_url: 'master' }}" loading="lazy" width="440" height="275"/>
             {%- else -%}
-            {{ 'image' | placeholder_svg_tag }
+                {{ 'image' | placeholder_svg_tag }}
             {%- endif -%}
         </div>
     </div>
 </div>
 
 {% schema %}
-
 {
-    "name": {
-        "en": "Text image block",
-        "np": "Text image block"
+  "name": {
+    "en": "Text image block",
+    "np": "Text image block"
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
     },
-    "settings": [
-        {
-            "type": "text",
-            "id": "title",
-            "label": "Title"
-        }, {
-            "type": "html",
-            "id": "content",
-            "label": "Content"
-        }, {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Image"
-        }, {
-            "type": "checkbox",
-            "id": "switch",
-            "default": false,
-            "label": "Switch image to left and text to right"
-        }
-    ],
-    "presets": [
-        {
-            "name": {
-                "en": "Text Image Block",
-                "np": "Text Image Block"
-            },
-            "category": {
-                "en": "Text Image Block",
-                "np": "Text Image Block"
-            }
-        }
-    ]
+    {
+      "type": "html",
+      "id": "content",
+      "label": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "switch",
+      "default": false,
+      "label": "Switch image to left and text to right"
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "en": "Text Image Block",
+        "np": "Text Image Block"
+      },
+      "category": {
+        "en": "Text Image Block",
+        "np": "Text Image Block"
+      }
+    }
+  ]
 }
-
 {% endschema %}
